@@ -10,24 +10,13 @@
         <TabControl>
             <TabItem Header="Консультант">
                 <Grid Background="#FFE5E5E5">
-                    <ListBox x:Name="ConsClientList" Margin="10,10,433,10">
-                        <!--<ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <Border BorderBrush="Black" Margin="5" BorderThickness="1">
-                                    <StackPanel Margin="10">
-                                        <TextBlock Text="{Binding Name}" Margin="0" FontSize="15"/>
-                                        <TextBlock Text="{Binding FName}" Margin="0" FontSize="15"/>
-                                        <TextBlock Text="{Binding Surname}" Margin="0" FontSize="20"/>
-                                        <TextBlock Text="{Binding Phone}" Margin="10 0" FontSize="10" Foreground="Gray" TextAlignment="Right"/>
-                                        <TextBlock Text="{Binding Password}" Margin="10 0" FontSize="10" Foreground="Gray" TextAlignment="Right"/>
-                                    </StackPanel>
-                                </Border>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>-->
+                    <ListBox x:Name="ConsClientList" Margin="10,10,433,10" SelectionMode="Single" SelectionChanged="SelectClient">
                     </ListBox>
-                    <TextBlock x:Name="consultantName"  HorizontalAlignment="Left" Margin="397,76,0,0" TextWrapping="Wrap" Text="Имя консультанта" VerticalAlignment="Top" Width="175" TextDecorations="Underline" FontWeight="Bold"/>
-                    <Button x:Name="ConChangeInfo" Content="Изменить информацию" HorizontalAlignment="Left" Margin="397,242,0,0" VerticalAlignment="Top" Background="#FFFFE120" Padding="10,5,10,3" BorderThickness="0,0,2,2" FontWeight="Bold" Click="ConsChangeInfo"/>
-                    <TextBlock x:Name="clientInfo" HorizontalAlignment="Left" Margin="397,211,0,0" TextWrapping="Wrap" Text="Информация о клиенте" VerticalAlignment="Top" Width="371" FontSize="16"/>
+                    <TextBlock x:Name="consultantName"  HorizontalAlignment="Left" Margin="397,44,0,0" TextWrapping="Wrap" Text="Имя консультанта" VerticalAlignment="Top" Width="175" TextDecorations="Underline" FontWeight="Bold"/>
+                    <Button x:Name="ConChangeInfo" Content="Изменить информацию" HorizontalAlignment="Left" Margin="397,295,0,0" VerticalAlignment="Top" Background="#FFFFE120" Padding="10,5,10,3" BorderThickness="0,0,2,2" FontWeight="Bold" Click="ConsChangeInfo"/>
+                    <TextBlock x:Name="clientInfo" HorizontalAlignment="Left" Margin="397,102,0,0" TextWrapping="Wrap" Text="Информация о клиенте" VerticalAlignment="Top" Width="371" FontSize="14" FontStyle="Italic" />
+                    <TextBox x:Name="newClientPhone" HorizontalAlignment="Left" Margin="397,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" Foreground="#FFB4B4B4"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="397,220,0,0" TextWrapping="Wrap" Text="Введите новый номер телефона" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Менеджер">

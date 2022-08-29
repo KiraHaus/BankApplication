@@ -21,24 +21,41 @@ namespace BankApplication
     /// </summary>
     public partial class MainWindow : Window
     {
+        Client client1;
+        Client client2;
+        Consultant cons1;
+        List<Client> clients;
+        Manager manager1;
+        List<string> consClients;
         public MainWindow()
         {
             InitializeComponent();
 
-            Client client1 = new Client("Кирилл", "Паладич", "Максимович", "+79521109088", "4235 678905");
-            Client client2 = new Client("Теодор", "Мосби", "Эвелин", "45 56 76589");
-            Consultant cons1 = new Consultant("Барни");
-            Manager manager1 = new Manager("Маршал");
-
-            ConsClientList.Items.Add(cons1.ClientInfo(client1));
-            ConsClientList.Items.Add(cons1.ClientInfo(client2));
+            client1 = new Client("Кирилл", "Паладич", "Максимович", "+79521109088", "4235 678905");
+            client2 = new Client("Теодор", "Мосби", "Эвелин", "45 56 76589");
+            cons1 = new Consultant("Барни");
+            manager1 = new Manager("Маршал");
+            clients = new List<Client>() {client1, client2};
+            consClients = new List<string> { $"{cons1.ClientInfo(client1)}", $"{cons1.ClientInfo(client2)}" };
+            ConsClientList.ItemsSource = consClients;
+            //ConsClientList.Text = cons1.ClientInfo(client1);
+            //ConsClientList.Text = cons1.ClientInfo(client2);
 
             consultantName.Text = $"Привет, {cons1.Name}";
         }
 
         private void ConsChangeInfo(object sender, RoutedEventArgs e)
         {
-            
+            string newPhone = newClientPhone.Text;
+            int index = ConsClientList.SelectedIndex;
+            cons1.ChangePhone(clients[index],newPhone);
+            ConsClientList.ItemsSource = consClients;
+
+        }
+
+        private void SelectClient(object sender, SelectionChangedEventArgs e)
+        {
+            clientInfo.Text = ConsClientList.SelectedItem.ToString();
         }
     }
 }
